@@ -798,6 +798,7 @@ adapter for acquiring nested variables and must not be 0."
      variables-reference
      (dap-request debug-session "variables" :variablesReference)
      (gethash "variables")
+     (cl-delete nil)
      (-map (-lambda ((&hash "value" "name"
                             "variablesReference" variables-reference))
              `(:label ,(concat (propertize (format "%s" name)
