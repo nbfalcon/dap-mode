@@ -721,6 +721,70 @@ request."
            (target (gethash "id" target)))
       (dap--step "stepIn" debug-session nil :targetId target))))
 
+(defun dap--get-source (file debug-session)
+  "Get the `Source' corresponding to FILE in DEBUG-SESSION."
+  (cl-find file (dap--debug-session-loaded-sources debug-session)
+           :test (lambda (f source) (f-same? f (gethash "path" source)))))
+
+(defun dap--get-buffer-source ()
+  "Get the `Source' corresponding to the current in the current
+  debug session."
+  (unless (buffer-file-name)
+    (error "Buffer not backed by file"))
+  (dap--get-source (buffer-file-name) (dap--cur-active-session-or-die)))
+
+(defun dap--goto-target-1 (prompt-fn)
+  "Skip to `point'.
+PROMPT-FN will be called with a list of `GotoTarget's if skipping
+is ambiguous, and must return one of them. See `dap-goto-target'.
+
+This abstraction is necessary to enable multiple prompt backends
+to be used, e.g. `avy-process' in the future."
+  (let* ((source (or (dap--get-buffer-source)
+                     (error "Couldn't locate buffer `Source'")))
+         (debug-session (dap--cur-active-session-or-die))
+         (targets (dap-request debug-session "gotoTargets"
+                               :source source :line (line-number-at-pos)
+                               :column (current-column)))
+         (target (pcase targets
+                   (`nil (error "No `GotoTarget's at point"))
+                   (`(,target) target)
+                   (_ (funcall prompt-fn targets))))
+         (targetId (gethash "id" target)))
+    (dap--step "goto" debug-session nil :targetId targetId)))
+
+(defface dap-goto-target-location-face '((t :inherit xref-line-number))
+  "Face used for the line:column part in `dap-goto-target'."
+  :group 'dap-faces)
+
+(defface dap-goto-target-address-face '((t :inherit dap-goto-target-location-face))
+  "Face used for the @address part in `dap-goto-target'."
+  :group 'dap-faces)
+
+(defface dap-goto-target-label-face '((t))
+  "Face used for the label in `dap-goto-target'."
+  :group 'dap-faces)
+
+(defun dap-goto-target ()
+  "Skip to `point'.
+If skipping is ambiguous, a `completing-read' selection will be
+used to prompt for a target."
+  (interactive)
+  (dap--goto-target-1
+   (lambda (targets)
+     (dap--completing-read
+      "Skip to: " targets
+      (-lambda ((&hash "label" "line" "column" "instructionPointerReference"))
+        (concat
+         (propertize
+          (concat (number-to-string line) (and column (format ":%d" column)))
+          'face 'dap-goto-target-location-face)
+         ":" (propertize label 'face 'dap-goto-target-label-face)
+         (propertize (and instructionPointerReference
+                          (concat " @" instructionPointerReference))
+                     'face 'dap-goto-target-address-face)))
+      nil t))))
+
 (defun dap-restart-frame (debug-session frame-id)
   "Restarts current frame."
   (interactive (let ((debug-session (dap--cur-active-session-or-die)))
