@@ -679,17 +679,18 @@ thread exection but the server will log message."
                      session)
   (dap--resume-application session))
 
-(defun dap--step (cmd &optional debug-session thread-id)
+(defun dap--step (cmd &optional debug-session thread-id &rest args)
   "Send a request for CMD, a step command.
 DEBUG-SESSION is the debug session in which the stepping is to be
 executed and THREAD-ID the thread to be stepped. Both default to
 the current debug session or the current thread if unspecified or
-nil."
+nil. ARGS are additional arguments to be used for the step
+request."
   (let* ((debug-session (or debug-session (dap--cur-active-session-or-die)))
          (thread-id (or thread-id (dap--debug-session-thread-id debug-session))))
     (unless thread-id
       (error "Currently active thread is not stopped. Use `dap-switch-thread' or select stopped thread from sessions view."))
-    (dap--send-message (dap--make-request cmd (list :threadId thread-id))
+    (dap--send-message (dap--make-request cmd (cl-list* :threadId thread-id args))
                        (dap--resp-handler)
                        debug-session)
     (dap--resume-application debug-session)))
@@ -707,6 +708,18 @@ nil."
 
 (dap-define-step dap-reverse-continue "reverseContinue")
 (dap-define-step dap-reverse-step "stepBack")
+
+(defun dap-step-in-interactive ()
+  "Prompt for a `stepIn' target and then step into that."
+  (interactive)
+  (let* ((debug-session (dap--cur-active-session-or-die))
+         (frame (gethash "id" (dap--debug-session-active-frame debug-session)))
+         (targets (dap-request debug-session "stepInTargets" :frameId frame)))
+    (unless targets
+      (user-error "Cannot perform `stepIn' at this point"))
+    (let* ((target (dap--completing-read "Step into: " targets (apply-partially #'gethash "label")))
+           (target (gethash "id" target)))
+      (dap--step "stepIn" debug-session nil :targetId target))))
 
 (defun dap-restart-frame (debug-session frame-id)
   "Restarts current frame."
