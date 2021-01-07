@@ -147,6 +147,7 @@
          (window (display-buffer-in-side-window buffer nil)))
     (select-window window)
     (set-window-dedicated-p window t)
+    (setq-local treemacs-space-between-root-nodes nil)
     (treemacs-initialize)
     (setq-local treemacs-default-visit-action 'treemacs-RET-action)
     (treemacs-DAP-LOADED-SOURCES-extension)

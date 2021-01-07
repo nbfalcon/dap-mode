@@ -749,10 +749,19 @@ DEBUG-SESSION is the debug session triggering the event."
   (remove-hook 'dap-continue-hook #'dap-ui-sessions--refresh)
   (remove-hook 'dap-stack-frame-changed-hook 'dap-ui-sessions--refresh))
 
+(defcustom dap-ui-sessions-space-between-root-nodes t
+  "`treemacs-space-between-root-nodes' in `dap-ui-expressions'."
+  :type 'boolean
+  :group 'dap-ui)
+
 ;;;###autoload
 (defun dap-ui-sessions ()
   "Show currently active sessions."
   (interactive)
+  (with-current-buffer (get-buffer-create dap-ui--sessions-buffer)
+    (lsp-treemacs-initialize)
+    (setq-local treemacs-space-between-root-nodes
+                dap-ui-sessions-space-between-root-nodes))
   (dap-ui--show-buffer
    (lsp-treemacs-render
     (dap-ui--sessions-tree)
@@ -869,10 +878,18 @@ request."
 
 (defvar dap-ui--locals-timer nil)
 
+(defcustom dap-ui-locals-space-between-root-nodes nil
+  "`treemacs-space-between-root-nodes' for `dap-ui-locals'."
+  :type 'boolean
+  :group 'dap-ui)
+
 (defun dap-ui-locals--refresh (&rest _)
   (save-excursion
     (setq dap-ui--locals-timer nil)
     (with-current-buffer (get-buffer-create dap-ui--locals-buffer)
+      (lsp-treemacs-initialize)
+      (setq-local treemacs-space-between-root-nodes
+                  dap-ui-locals-space-between-root-nodes)
       (or (-some--> (dap--cur-session)
             (dap--debug-session-active-frame it)
             (gethash "id" it)
@@ -890,8 +907,8 @@ request."
             (or it t))
           (lsp-treemacs-render
            '((:label "Nothing to display..."
-                     :key "foo"
-                     :icon :empty))
+              :key "foo"
+              :icon :empty))
            " Locals :: no locals info "
            nil
            dap-ui--locals-buffer)))))
@@ -959,10 +976,18 @@ request."
 (dap-ui-define-action dap-ui-expressions-mouse-remove (:expression)
   (dap-ui-expressions-remove expression))
 
+(defcustom dap-ui-expressions-space-between-root-nodes nil
+  "`treemacs-space-between-root-nodes' in `dap-ui-expressions'."
+  :type 'boolean
+  :group 'dap-ui)
+
 (defun dap-ui-expressions-refresh ()
   (interactive)
   (save-excursion
     (with-current-buffer (get-buffer-create dap-ui--expressions-buffer)
+      (lsp-treemacs-initialize)
+      (setq-local treemacs-space-between-root-nodes
+                  dap-ui-expressions-space-between-root-nodes)
       (lsp-treemacs-render
        (let ((debug-session (dap--cur-session)))
          (-map
@@ -1186,6 +1211,8 @@ request."
 (defun dap-ui-breakpoints--refresh (&rest _args)
   (save-excursion
     (with-current-buffer (get-buffer-create dap-ui--breakpoints-buffer)
+      (lsp-treemacs-initialize)
+      (setq-local treemacs-space-between-root-nodes nil)
       (lsp-treemacs-render
        (dap-ui--breakpoints-data)
        " Breakpoints "
