@@ -667,19 +667,6 @@ thread exection but the server will log message."
         (dap--debug-session-thread-id debug-session) nil)
   (run-hook-with-args 'dap-continue-hook debug-session))
 
-(defun dap-continue (debug-session thread-id)
-  "Call continue for the currently active session and thread."
-  (interactive (list (dap--cur-active-session-or-die)
-                     (dap--debug-session-thread-id (dap--cur-active-session-or-die))))
-  (if thread-id
-      (progn
-        (dap--send-message (dap--make-request "continue"
-                                              (list :threadId thread-id))
-                           (dap--resp-handler)
-                           debug-session)
-        (dap--resume-application debug-session))
-    (lsp--error "Currently active thread is not stopped. Use `dap-switch-thread' or select stopped thread from sessions view.")))
-
 (defun dap-disconnect (session)
   "Disconnect from the currently active session."
   (interactive (list (dap--cur-active-session-or-die)))
@@ -692,34 +679,34 @@ thread exection but the server will log message."
                      session)
   (dap--resume-application session))
 
-(defun dap--step (cmd debug-session)
+(defun dap--step (cmd &optional debug-session thread-id)
   "Send a request for CMD, a step command.
 DEBUG-SESSION is the debug session in which the stepping is to be
-executed."
-  (if-let (thread-id (dap--debug-session-thread-id debug-session))
-      (progn
-        (dap--send-message (dap--make-request
-                            cmd
-                            (list :threadId thread-id))
-                           (dap--resp-handler)
-                           debug-session)
-        (dap--resume-application debug-session))
-    (lsp--error "Currently active thread is not stopped. Use `dap-switch-thread' or select stopped thread from sessions view.")))
+executed and THREAD-ID the thread to be stepped. Both default to
+the current debug session or the current thread if unspecified or
+nil."
+  (let* ((debug-session (or debug-session (dap--cur-active-session-or-die)))
+         (thread-id (or thread-id (dap--debug-session-thread-id debug-session))))
+    (unless thread-id
+      (error "Currently active thread is not stopped. Use `dap-switch-thread' or select stopped thread from sessions view."))
+    (dap--send-message (dap--make-request cmd (list :threadId thread-id))
+                       (dap--resp-handler)
+                       debug-session)
+    (dap--resume-application debug-session)))
 
-(defun dap-next (debug-session)
-  "Step over statements."
-  (interactive (list (dap--cur-session-or-die)))
-  (dap--step "next" debug-session))
+(defmacro dap-define-step (name command)
+  "Define a step (in, out, ...) COMMAND called NAME."
+  `(defun ,name (&optional debug-session thread-id)
+     (interactive)
+     (dap--step ,command debug-session thread-id)))
 
-(defun dap-step-in (debug-session)
-  "Like `dap-next', but step into function calls."
-  (interactive (list (dap--cur-session-or-die)))
-  (dap--step "stepIn" debug-session))
+(dap-define-step dap-next "next")
+(dap-define-step dap-step-in "stepIn")
+(dap-define-step dap-step-out "stepOut")
+(dap-define-step dap-continue "continue")
 
-(defun dap-step-out (debug-session)
-  "Debug step out."
-  (interactive (list (dap--cur-session-or-die)))
-  (dap--step "stepOut" debug-session))
+(dap-define-step dap-reverse-continue "reverseContinue")
+(dap-define-step dap-reverse-step "stepBack")
 
 (defun dap-restart-frame (debug-session frame-id)
   "Restarts current frame."
