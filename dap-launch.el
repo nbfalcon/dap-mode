@@ -58,8 +58,7 @@ Yields nil if it cannot be found or there is no project."
 (defun dap-launch-get-launch-json ()
   "Parse the project's launch.json as json data and return the result."
   (when-let ((launch-json (dap-launch-find-launch-json))
-             (json-object-type 'plist)
-             (json-array-type 'list))
+             (json-object-type 'plist))
     (with-temp-buffer
       ;; NOTE: insert-file-contents does not move point
       (insert-file-contents launch-json)
