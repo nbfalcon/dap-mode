@@ -1,6 +1,4 @@
 
-
-
 <!doctype html>
 <html lang="en" class="no-js">
   <head>
@@ -9,11 +7,12 @@
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
       
+      
+      
         <link rel="canonical" href="https://emacs-lsp.github.io/dap-mode/page/configuration/">
       
-      
       <link rel="shortcut icon" href="../../screenshots/logo.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-5.5.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.4">
     
     
       
@@ -21,14 +20,18 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.947af8d5.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.15aa0b43.min.css">
       
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.75751829.min.css">
+        
       
     
     
     
       
-        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
         <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
       
@@ -48,7 +51,13 @@
   </head>
   
   
-    <body dir="ltr">
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
   
     
     <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
@@ -66,7 +75,9 @@
       
     </div>
     
-      <header class="md-header" data-md-component="header">
+      
+
+<header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid" aria-label="Header">
     <a href="https://emacs-lsp.github.io/dap-mode" title="DAP Mode" class="md-header-nav__button md-logo" aria-label="DAP Mode">
       
@@ -77,18 +88,20 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
     </label>
     <div class="md-header-nav__title" data-md-component="header-title">
-      
-        <div class="md-header-nav__ellipsis">
-          <span class="md-header-nav__topic md-ellipsis">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             DAP Mode
           </span>
-          <span class="md-header-nav__topic md-ellipsis">
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
             
               Configuration
             
           </span>
         </div>
-      
+      </div>
     </div>
     
       <label class="md-header-nav__button md-icon" for="__search">
@@ -99,7 +112,7 @@
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
       <label class="md-search__icon md-icon" for="__search">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
@@ -140,41 +153,75 @@
     
     <div class="md-container" data-md-component="container">
       
-        
-      
       
         
           
-
 <nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
+  
+  
+
+
   <li class="md-tabs__item">
-    
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
-        Home
-      </a>
-    
+    <a href="../.." class="md-tabs__link">
+      Home
+    </a>
   </li>
 
       
         
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../features/" class="md-tabs__link">
+      Features
+    </a>
+  </li>
+
       
         
+  
+  
+    
+  
+
+
+  <li class="md-tabs__item">
+    <a href="./" class="md-tabs__link md-tabs__link--active">
+      Configuration
+    </a>
+  </li>
+
       
         
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../how-to/" class="md-tabs__link">
+      How to
+    </a>
+  </li>
+
       
         
+  
+  
+
+
+  
   
   
     <li class="md-tabs__item">
-      
-        <a href="../clojure/" class="md-tabs__link">
-          Tutorials
-        </a>
-      
+      <a href="../clojure/" class="md-tabs__link">
+        Tutorials
+      </a>
     </li>
   
 
@@ -182,27 +229,15 @@
         
   
   
-    <li class="md-tabs__item">
-      
-        <a href="../gallery/" class="md-tabs__link">
-          Gallery
-        </a>
-      
-    </li>
-  
 
-      
-        
-      
-        
+
+  
   
   
     <li class="md-tabs__item">
-      
-        <a href="../../CHANGELOG/" class="md-tabs__link">
-          Changelog
-        </a>
-      
+      <a href="../gallery/" class="md-tabs__link">
+        Gallery
+      </a>
     </li>
   
 
@@ -210,12 +245,43 @@
         
   
   
+
+
+  <li class="md-tabs__item">
+    <a href="../adding-debug-server/" class="md-tabs__link">
+      Adding a new debug server
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
     <li class="md-tabs__item">
+      <a href="../../CHANGELOG/" class="md-tabs__link">
+        Changelog
+      </a>
+    </li>
+  
+
       
-        <a href="https://emacs-lsp.github.io/lsp-mode" class="md-tabs__link">
-          LSP Mode
-        </a>
-      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="https://emacs-lsp.github.io/lsp-mode" class="md-tabs__link">
+        LSP Mode
+      </a>
     </li>
   
 
@@ -229,10 +295,18 @@
         <div class="md-main__inner md-grid">
           
             
-              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
-                    <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
     <a href="https://emacs-lsp.github.io/dap-mode" title="DAP Mode" class="md-nav__button md-logo" aria-label="DAP Mode">
       
@@ -262,8 +336,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href="../.." title="Home" class="md-nav__link">
+    <a href="../.." class="md-nav__link">
       Home
     </a>
   </li>
@@ -274,8 +349,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href="../features/" title="Features" class="md-nav__link">
+    <a href="../features/" class="md-nav__link">
       Features
     </a>
   </li>
@@ -284,6 +360,7 @@
       
       
       
+
 
   
 
@@ -297,12 +374,10 @@
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
         Configuration
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 9h14V7H3v2m0 4h14v-2H3v2m0 4h14v-2H3v2m16 0h2v-2h-2v2m0-10v2h2V7h-2m0 6h2v-2h-2v2z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
       </label>
     
-    <a href="./" title="Configuration" class="md-nav__link md-nav__link--active">
+    <a href="./" class="md-nav__link md-nav__link--active">
       Configuration
     </a>
     
@@ -314,9 +389,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -364,6 +437,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vscode-cpptools" class="md-nav__link">
+    vscode-cpptools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#elixir" class="md-nav__link">
     Elixir
   </a>
@@ -381,6 +461,19 @@
   <a href="#native-debug-gdblldb" class="md-nav__link">
     Native Debug (GDB/LLDB)
   </a>
+  
+    <nav class="md-nav" aria-label="Native Debug (GDB/LLDB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -417,8 +510,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href="../how-to/" title="How to" class="md-nav__link">
+    <a href="../how-to/" class="md-nav__link">
       How to
     </a>
   </li>
@@ -429,21 +523,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
     
     <label class="md-nav__link" for="nav-5">
       Tutorials
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Tutorials" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         Tutorials
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -454,8 +547,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../clojure/" title="Clojure" class="md-nav__link">
+    <a href="../clojure/" class="md-nav__link">
       Clojure
     </a>
   </li>
@@ -471,21 +565,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
     
     <label class="md-nav__link" for="nav-6">
       Gallery
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Gallery" data-md-level="1">
       <label class="md-nav__title" for="nav-6">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         Gallery
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -496,8 +589,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../gallery/" title="Gallery" class="md-nav__link">
+    <a href="../gallery/" class="md-nav__link">
       Gallery
     </a>
   </li>
@@ -513,8 +607,9 @@
       
 
 
+
   <li class="md-nav__item">
-    <a href="../adding-debug-server/" title="Adding a new debug server" class="md-nav__link">
+    <a href="../adding-debug-server/" class="md-nav__link">
       Adding a new debug server
     </a>
   </li>
@@ -525,21 +620,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       Changelog
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="Changelog" data-md-level="1">
       <label class="md-nav__title" for="nav-8">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         Changelog
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -550,8 +644,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="../../CHANGELOG/" title="Changelog" class="md-nav__link">
+    <a href="../../CHANGELOG/" class="md-nav__link">
       Changelog
     </a>
   </li>
@@ -567,21 +662,20 @@
       
 
 
+
+  
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9">
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
     
     <label class="md-nav__link" for="nav-9">
       LSP Mode
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M8.59 16.58L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.42z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
     </label>
     <nav class="md-nav" aria-label="LSP Mode" data-md-level="1">
       <label class="md-nav__title" for="nav-9">
-        <span class="md-nav__icon md-icon">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-        </span>
+        <span class="md-nav__icon md-icon"></span>
         LSP Mode
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -592,8 +686,9 @@
           
 
 
+
   <li class="md-nav__item">
-    <a href="https://emacs-lsp.github.io/lsp-mode" title="LSP Mode" class="md-nav__link">
+    <a href="https://emacs-lsp.github.io/lsp-mode" class="md-nav__link">
       LSP Mode
     </a>
   </li>
@@ -611,7 +706,8 @@
               </div>
             
             
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
                 <div class="md-sidebar__scrollwrap">
                   <div class="md-sidebar__inner">
                     
@@ -622,9 +718,7 @@
   
   
     <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </span>
+      <span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
     <ul class="md-nav__list" data-md-scrollfix>
@@ -672,6 +766,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#vscode-cpptools" class="md-nav__link">
+    vscode-cpptools
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#elixir" class="md-nav__link">
     Elixir
   </a>
@@ -689,6 +790,19 @@
   <a href="#native-debug-gdblldb" class="md-nav__link">
     Native Debug (GDB/LLDB)
   </a>
+  
+    <nav class="md-nav" aria-label="Native Debug (GDB/LLDB)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rust" class="md-nav__link">
+    Rust
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -730,20 +844,16 @@
                   </a>
                 
                 
-                  
-                
-                
                 <h1 id="configuration">Configuration<a class="headerlink" href="#configuration" title="Permanent link">#</a></h1>
 <h2 id="dap-mode-configuration">DAP mode configuration<a class="headerlink" href="#dap-mode-configuration" title="Permanent link">#</a></h2>
 <p>For an auto-configuration enable the <code>dap-auto-configure-mode</code>. You can configure which features from <code>dap-mode</code> do you want with <code>dap-auto-configure-features</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="c1">;; Enabling only some features</span>
 <span class="p">(</span><span class="k">setq</span> <span class="nv">dap-auto-configure-features</span> <span class="o">&#39;</span><span class="p">(</span><span class="nv">sessions</span> <span class="nv">locals</span> <span class="nv">controls</span> <span class="nv">tooltip</span><span class="p">))</span>
 </code></pre></div>
-
 <p>Or if you want to enable only specific modes instead:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">dap-mode</span> <span class="mi">1</span><span class="p">)</span>
 
-<span class="c1">;; The modes above are optional</span>
+<span class="c1">;; The modes below are optional</span>
 
 <span class="p">(</span><span class="nv">dap-ui-mode</span> <span class="mi">1</span><span class="p">)</span>
 <span class="c1">;; enables mouse hover support</span>
@@ -755,7 +865,6 @@
 <span class="c1">;; requies emacs 26+</span>
 <span class="p">(</span><span class="nv">dap-ui-controls-mode</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
-
 <p>After enabling DAP mode on emacs side follow the language specific
 settings.</p>
 <h2 id="java">Java<a class="headerlink" href="#java" title="Permanent link">#</a></h2>
@@ -771,7 +880,6 @@ force a server update via <kbd>C-u</kbd> <kbd>M-x</kbd> <code>lsp-install-server
 <code>dap-java.el</code>.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-java</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 <li>
 <p>Commands</p>
@@ -817,7 +925,6 @@ as classpath. JVM arguments can be specified with <code>:vmArgs</code>:</p>
                                    <span class="nb">:mainClass</span> <span class="s">&quot;com.domain.AppRunner&quot;</span>
                                    <span class="nb">:env</span> <span class="o">&#39;</span><span class="p">((</span><span class="s">&quot;DEV&quot;</span> <span class="o">.</span> <span class="s">&quot;1&quot;</span><span class="p">))))</span>
 </code></pre></div>
-
 </li>
 </ol>
 <h2 id="python">Python<a class="headerlink" href="#python" title="Permanent link">#</a></h2>
@@ -829,13 +936,11 @@ as classpath. JVM arguments can be specified with <code>:vmArgs</code>:</p>
 <p>install latest version of ptvsd.</p>
 <div class="highlight"><pre><span></span><code>pip install <span class="s2">&quot;ptvsd&gt;=4.2&quot;</span>
 </code></pre></div>
-
 <ul>
 <li>
 <p>Then add the following line in your config:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-python</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 <p>This will add the python related configuration to <code>dap-debug</code>.</p>
@@ -857,7 +962,6 @@ execute a setuptools based script. In such case, define a template:</p>
         <span class="nb">:request</span> <span class="s">&quot;launch&quot;</span>
         <span class="nb">:name</span> <span class="s">&quot;My App&quot;</span><span class="p">))</span>
 </code></pre></div>
-
 </li>
 </ol>
 <h2 id="ruby">Ruby<a class="headerlink" href="#ruby" title="Permanent link">#</a></h2>
@@ -885,7 +989,6 @@ execute a setuptools based script. In such case, define a template:</p>
 <p>Put in your emacs configuration.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-ruby</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 <h2 id="dart">Dart<a class="headerlink" href="#dart" title="Permanent link">#</a></h2>
@@ -916,7 +1019,6 @@ and Swift.</p>
 <p>Put in your emacs configuration.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-lldb</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 <p><strong>Note</strong>: For proper Swift support, you need to compile LLDB from
@@ -924,13 +1026,32 @@ and Swift.</p>
 library/framework in the "extensions" folder.</p>
 </li>
 </ol>
+<h2 id="vscode-cpptools">vscode-cpptools<a class="headerlink" href="#vscode-cpptools" title="Permanent link">#</a></h2>
+<ol>
+<li>Installation</li>
+</ol>
+<p>You only need to run <code>dap-cpptools-setup</code> to setup automatically and then
+you are good start debugging.</p>
+<div class="codehilite"><pre><span></span><code>  <span class="o">-</span> <span class="n">Clone</span> <span class="ow">and</span> <span class="n">follow</span> <span class="n">the</span> <span class="n">instructions</span> <span class="n">to</span> <span class="n">compile</span> <span class="n">lldb</span><span class="o">-</span><span class="n">vscode</span> <span class="n">from</span>
+    <span class="o">&lt;</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">llvm</span><span class="o">/</span><span class="n">llvm</span><span class="o">-</span><span class="n">project</span><span class="o">/</span><span class="n">tree</span><span class="o">/</span><span class="k">master</span><span class="o">/</span><span class="n">lldb</span><span class="o">/</span><span class="n">tools</span><span class="o">/</span><span class="n">lldb</span><span class="o">-</span><span class="n">vscode</span><span class="o">&gt;</span>
+
+  <span class="o">-</span> <span class="n">Put</span> <span class="ow">in</span> <span class="n">your</span> <span class="n">emacs</span> <span class="n">configuration</span><span class="o">.</span>
+
+    <span class="err">```</span> <span class="n">elisp</span>
+    <span class="p">(</span><span class="n">require</span> <span class="s1">&#39;dap-cpptools)</span>
+    <span class="err">```</span>
+</code></pre></div>
+
+<ol>
+<li>Usage <code>dap-debug-edit-template</code> and select template "cpptools" prefixed
+    configuration.</li>
+</ol>
 <h2 id="elixir">Elixir<a class="headerlink" href="#elixir" title="Permanent link">#</a></h2>
 <p>Make sure that you have properly configured <code>Elixir</code> and that you have
 <a href="https://github.com/elixir-lsp/elixir-ls">Elixir LS</a> binaries on the
 path and put in your emacs configuration.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-elixir</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Then when you do <code>dap-debug-edit-template</code> and select Elixir which will
 generate runnable debug configuration. For more details on supported
 settings by the Elixir Debug Server refer to its documentation.</p>
@@ -946,7 +1067,6 @@ side. Make sure it is trans/compiled to javascript properly. Only tested
 under linux with node.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-php</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Start debugging by selecting "PHP Run Configuration" from the
 <code>dap-debug</code> menu, issue the debug request in your browser by choosing
 the running thread (<code>dap-switch-thread</code>) and then <code>dap-step-in</code>.</p>
@@ -963,11 +1083,20 @@ extension</a>
 location).</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-gdb-lldb</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Then do <code>dap-debug</code> or <code>dap-debug-edit-template</code> and selet GBD or
 LLDB configuration.</p>
 </li>
 </ol>
+<h3 id="rust">Rust<a class="headerlink" href="#rust" title="Permanent link">#</a></h3>
+<p>To fully support rust and pretty printing of strings when debugging, remember to add set <code>gdbpath</code> to <code>rust-gdb</code> in your debug template. An example template would be</p>
+<div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nv">dap-register-debug-template</span> <span class="s">&quot;Rust::GDB Run Configuration&quot;</span>
+                             <span class="p">(</span><span class="nf">list</span> <span class="nb">:type</span> <span class="s">&quot;gdb&quot;</span>
+                                   <span class="nb">:request</span> <span class="s">&quot;launch&quot;</span>
+                                   <span class="nb">:name</span> <span class="s">&quot;GDB::Run&quot;</span>
+                           <span class="nb">:gdbpath</span> <span class="s">&quot;rust-gdb&quot;</span>
+                                   <span class="nb">:target</span> <span class="no">nil</span>
+                                   <span class="nb">:cwd</span> <span class="no">nil</span><span class="p">))</span>
+</code></pre></div>
 <h2 id="go">Go<a class="headerlink" href="#go" title="Permanent link">#</a></h2>
 <ol>
 <li>
@@ -1001,14 +1130,12 @@ LLDB configuration.</p>
 <p>Put in your emacs configuration.</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-go</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 <li>
 <p>set up hydra hook as instructed above</p>
 </li>
 </ul>
 <!-- end list -->
-
 <ol>
 <li>
 <p>Usage</p>
@@ -1063,7 +1190,6 @@ LLDB configuration.</p>
 <p>Put in your configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-firefox</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 </li>
@@ -1099,7 +1225,6 @@ Adapter</a>.</p>
 <p>Put in your configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-chrome</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 </li>
@@ -1135,7 +1260,6 @@ Adapter</a>.</p>
 <p>Put in your configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-edge</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 </li>
@@ -1171,7 +1295,6 @@ Adapter</a>.</p>
 <p>Put in your configuration file:</p>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-node</span><span class="p">)</span>
 </code></pre></div>
-
 </li>
 </ul>
 </li>
@@ -1189,7 +1312,6 @@ Debugging</a>.</p>
 <h2 id="powershell">Powershell<a class="headerlink" href="#powershell" title="Permanent link">#</a></h2>
 <div class="highlight"><pre><span></span><code><span class="p">(</span><span class="nb">require</span> <span class="ss">&#39;dap-pwsh</span><span class="p">)</span>
 </code></pre></div>
-
 <p>Start debugging by selecting "Powershell: Launch Script" from
 <code>dap-debug</code> menu.</p>
                 
@@ -1200,7 +1322,7 @@ Debugging</a>.</p>
 <div class="md-source-date">
   <small>
     
-      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">August 5, 2020</span>
+      Last update: <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">February 22, 2021</span>
     
   </small>
 </div>
@@ -1223,7 +1345,7 @@ Debugging</a>.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../features/" title="Features" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../features/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -1238,7 +1360,7 @@ Debugging</a>.</p>
           </a>
         
         
-          <a href="../how-to/" title="How to" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../how-to/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
@@ -1302,15 +1424,15 @@ Debugging</a>.</p>
       
     </div>
     
-      <script src="../../assets/javascripts/vendor.c3dc8c49.min.js"></script>
-      <script src="../../assets/javascripts/bundle.f9edbbd5.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents"}</script>
+      <script src="../../assets/javascripts/vendor.93c04032.min.js"></script>
+      <script src="../../assets/javascripts/bundle.83e5331e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
       
       <script>
         app = initialize({
           base: "../..",
-          features: ["tabs"],
+          features: ['navigation.tabs'],
           search: Object.assign({
-            worker: "../../assets/javascripts/worker/search.8e2cddea.min.js"
+            worker: "../../assets/javascripts/worker/search.8c7e0a7e.min.js"
           }, typeof search !== "undefined" && search)
         })
       </script>
