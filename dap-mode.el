@@ -1656,8 +1656,7 @@ after selecting configuration template."
   (interactive (list (-> (dap--completing-read "Select configuration template: "
                                                (-mapcat #'funcall dap-launch-configuration-providers)
                                                'cl-first nil t)
-                         cl-rest
-                         copy-tree)))
+                         cl-rest)))
   ;; NOTE: the launch configuration must be expanded *before* being passed to a
   ;; debug provider. This is because some debug providers (e.g. dap-python) pass
   ;; some fields of DEBUG-ARGS as shell arguments in :program-to-launch and try
